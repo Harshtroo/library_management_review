@@ -242,5 +242,5 @@ def exportcsv(request):
     messages.success(request,"successfully send email.")
     return redirect('/')
 
-def trial():
-    pass
+def test_function():
+    print("fjhrgkru")
