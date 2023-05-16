@@ -187,6 +187,7 @@ class BookHistory(TemplateView):
     def post(self,request,*args,**kwargs):
         assigned_books = AssignedBook.objects.values("book").annotate(count=Count("book"))
         book_list = []
+
         for assigned_book in assigned_books:
             book = Book.objects.get(id=assigned_book['book'])
             assignments_count = AssignedBook.objects.filter(book=book, is_deleted=False).count()
@@ -240,3 +241,6 @@ def exportcsv(request):
     os.remove(zip_filename)
     messages.success(request,"successfully send email.")
     return redirect('/')
+
+def trial():
+    pass
